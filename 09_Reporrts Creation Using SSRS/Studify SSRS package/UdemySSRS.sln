@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "UdemySSRS", "UdemySSRS.rptproj", "{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.Debug|Default.ActiveCfg = Debug
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.Debug|Default.Build.0 = Debug
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.Debug|Default.Deploy.0 = Debug
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.DebugLocal|Default.Build.0 = DebugLocal
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.Release|Default.ActiveCfg = Release
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.Release|Default.Build.0 = Release
+		{DF85FB4E-5A61-4954-80D9-681C2E7E38E9}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

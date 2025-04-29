@@ -1,0 +1,166 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>UdemySSAS</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>G/pOPQb5jEf58pJAYigld6zRR+0=4/21/2025 12:15:56 PM4/8/2025 7:38:53 AM</TimeStamp>
+        <ID>
+          <String>Udemy DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>7yNMBnYQmEFxJ82Y2vJHH5Yi42w=4/21/2025 2:01:22 AM4/21/2025 2:01:22 AM</TimeStamp>
+        <ID>
+          <String>Cart DM</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>ubM4FZyEcl0MdMzSACcYynWz4h8=4/8/2025 8:11:04 AM4/8/2025 7:46:48 AM</TimeStamp>
+        <ID>
+          <String>EnrollmentView</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>KKjZvTeaJBTHh/6aHWt45J4vxw8=4/21/2025 1:55:59 AM4/8/2025 11:25:16 AM</TimeStamp>
+        <ID>
+          <String>OrderView</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>Y5U2TUbN8YuAVEjl/IJZPjE9/xc=4/21/2025 2:06:58 AM4/21/2025 2:03:25 AM</TimeStamp>
+        <ID>
+          <String>Fact Cart View</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>NP8dHj/tCcQD+T48GAE6kscJ0Tg=4/21/2025 10:09:56 AM4/8/2025 8:11:04 AM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>zOSLQKULxK2+annjiv7uVQYDsso=4/8/2025 8:27:32 AM4/8/2025 8:11:04 AM</TimeStamp>
+        <ID>
+          <String>Dim Courses</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9srwwjXiYcLj/WACAidEQjJ6EaQ=4/21/2025 10:12:34 AM4/8/2025 8:11:04 AM</TimeStamp>
+        <ID>
+          <String>Dim Students</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>plamJ9rSe3P/Fa0AukOF8bawbdw=4/21/2025 10:16:55 AM4/8/2025 11:31:46 AM</TimeStamp>
+        <ID>
+          <String>Dim Courses 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ChWUer2lE0SncH4BuzruDRGVf7k=4/21/2025 10:19:08 AM4/8/2025 11:31:46 AM</TimeStamp>
+        <ID>
+          <String>Dim Date 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>pjPhDc5zVJtgmFxVHnPfdfG1AvA=4/21/2025 10:17:56 AM4/8/2025 11:31:46 AM</TimeStamp>
+        <ID>
+          <String>Dim Students 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>N53WonQGphUfQ5ZqxnUIL153QeA=4/9/2025 2:50:36 AM4/9/2025 2:48:49 AM</TimeStamp>
+        <ID>
+          <String>Dim Status</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZmNCB4Y9zYW9Ph4NyEHUmeab3A8=4/9/2025 2:51:07 AM4/9/2025 2:48:49 AM</TimeStamp>
+        <ID>
+          <String>Dim Payment Method</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ovfcq8ZADKYVlMpSZt6k0Rqqi+s=4/21/2025 10:22:35 AM4/21/2025 2:10:12 AM</TimeStamp>
+        <ID>
+          <String>Dim Courses 2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>oDGE7p9A0tIgi4m+4yQVPkW8E0w=4/21/2025 10:23:48 AM4/21/2025 2:10:12 AM</TimeStamp>
+        <ID>
+          <String>Dim Date 2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tMwjvkxZYUYRchOkPmk96OVckBU=4/21/2025 2:20:47 AM4/21/2025 2:10:14 AM</TimeStamp>
+        <ID>
+          <String>Dim Students 2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>d+SxEcH7eVpltGM/miFHPlaY8JQ=4/21/2025 12:06:27 PM4/8/2025 8:12:29 AM2BmVhBMobh/Vr8UUZM3lr3Qc38c=4/8/2025 11:12:49 AM4/8/2025 8:12:29 AM</TimeStamp>
+        <ID>
+          <String>Enrollment Analysis</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>4WPmAl0VoEAEJsiPAiERceNTywQ=4/21/2025 10:29:38 AM4/9/2025 2:48:49 AMoKppjL2VSbiQrxo2KQ/h+PzWOvQ=4/21/2025 1:39:27 AM4/9/2025 2:48:49 AM</TimeStamp>
+        <ID>
+          <String>Sales and Revenue</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>I6UiTNvNsWcDmok14dW3YmphGTI=4/21/2025 10:23:50 AM4/21/2025 2:10:12 AMUEBNLmI/7EGjy22ESr9RGxFSNww=4/21/2025 2:28:14 AM4/21/2025 2:10:12 AM</TimeStamp>
+        <ID>
+          <String>Cart Analysis</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>3Jha3pS8jLoQU5bAxWdJLcWcJIM=4/8/2025 7:36:45 AM4/8/2025 7:36:45 AM</TimeStamp>
+      <ID>
+        <String>UdemySSAS</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2025-04-21T10:16:05.143333Z</LastDeployed>
+</DeploymentSnapshot>

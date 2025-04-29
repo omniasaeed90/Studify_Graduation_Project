@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{51318989-1CE9-49E6-B672-FE258B1835CC}|UdemySSAS.dwproj|D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Cart Analysis.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{51318989-1CE9-49E6-B672-FE258B1835CC}|UdemySSAS.dwproj|solutionrelative:Cart Analysis.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51318989-1CE9-49E6-B672-FE258B1835CC}|UdemySSAS.dwproj|D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Sales and Revenue.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{51318989-1CE9-49E6-B672-FE258B1835CC}|UdemySSAS.dwproj|solutionrelative:Sales and Revenue.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51318989-1CE9-49E6-B672-FE258B1835CC}|UdemySSAS.dwproj|D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Enrollment Analysis.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{51318989-1CE9-49E6-B672-FE258B1835CC}|UdemySSAS.dwproj|solutionrelative:Enrollment Analysis.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a83394e3-39c2-4678-a3c8-364b69d78fd3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cart Analysis.cube [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Cart Analysis.cube",
+              "RelativeDocumentMoniker": "Cart Analysis.cube",
+              "ToolTip": "D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Cart Analysis.cube [Design]",
+              "RelativeToolTip": "Cart Analysis.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T16:02:02.268Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sales and Revenue.cube [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Sales and Revenue.cube",
+              "RelativeDocumentMoniker": "Sales and Revenue.cube",
+              "ToolTip": "D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Sales and Revenue.cube [Design]",
+              "RelativeToolTip": "Sales and Revenue.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T16:01:30.554Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Enrollment Analysis.cube [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Enrollment Analysis.cube",
+              "RelativeDocumentMoniker": "Enrollment Analysis.cube",
+              "ToolTip": "D:\\power bi devolopment\\Graduation Project Udemy\\UdemySSAS\\Enrollment Analysis.cube [Design]*",
+              "RelativeToolTip": "Enrollment Analysis.cube [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T15:58:48.218Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Carts by Countery Report .rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Carts by Countery Report .rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Carts by Category Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Carts by Category Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Enrollment by category Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Enrollment by category Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Enrollment by Country Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Enrollment by Country Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Revenue Report by Category Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Revenue Report by Category Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Revenue By Country Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Revenue By Country Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a83394e3-39c2-4678-a3c8-364b69d78fd3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Enrollment by Country Report.rdl [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Enrollment by Country Report.rdl",
+              "RelativeDocumentMoniker": "Enrollment by Country Report.rdl",
+              "ToolTip": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Enrollment by Country Report.rdl [Design]",
+              "RelativeToolTip": "Enrollment by Country Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T14:45:11.042Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Enrollment by category Report.rdl [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Enrollment by category Report.rdl",
+              "RelativeDocumentMoniker": "Enrollment by category Report.rdl",
+              "ToolTip": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Enrollment by category Report.rdl [Design]",
+              "RelativeToolTip": "Enrollment by category Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T14:16:47.824Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Carts by Category Report.rdl [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Carts by Category Report.rdl",
+              "RelativeDocumentMoniker": "Carts by Category Report.rdl",
+              "ToolTip": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Carts by Category Report.rdl [Design]",
+              "RelativeToolTip": "Carts by Category Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T15:10:01.12Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Carts by Countery Report .rdl [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Carts by Countery Report .rdl",
+              "RelativeDocumentMoniker": "Carts by Countery Report .rdl",
+              "ToolTip": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Carts by Countery Report .rdl [Design]",
+              "RelativeToolTip": "Carts by Countery Report .rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T15:17:53.382Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Revenue Report by Category Report.rdl [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Revenue Report by Category Report.rdl",
+              "RelativeDocumentMoniker": "Revenue Report by Category Report.rdl",
+              "ToolTip": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Revenue Report by Category Report.rdl [Design]",
+              "RelativeToolTip": "Revenue Report by Category Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T11:29:37.497Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Revenue By Country Report.rdl [Design]",
+              "DocumentMoniker": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Revenue By Country Report.rdl",
+              "RelativeDocumentMoniker": "Revenue By Country Report.rdl",
+              "ToolTip": "D:\\power bi devolopment\\Projects\\Graduation Project Studify\\09_Reporrts Creation Using SSRS\\Studify SSRS package\\Revenue By Country Report.rdl [Design]",
+              "RelativeToolTip": "Revenue By Country Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-21T12:57:54.473Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
