@@ -1,0 +1,1 @@
+https://studify-dashboard.streamlit.app/?embed_options=dark_theme,show_footer,show_padding,disable_scrolling,show_toolbar,light_theme,show_colored_line
