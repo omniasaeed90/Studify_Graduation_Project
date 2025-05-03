@@ -184,7 +184,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 
 #### 10.1 Power BI Dashboards  
 
-##### 10.1.1 Power BI Integration Dashboards  
+##### 10.1.1 Power BI Integration Dashboards
 **10.1.1.1 Studify Admin Dashboard**  
 - **Pages:**  
   - **Platform Overview:** Real-time metrics (active users, revenue, server health).  
