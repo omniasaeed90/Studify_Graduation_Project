@@ -104,7 +104,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ##### 03.2.1 Web Scraping: 
   - **Tools:** Instant Data Scraper (Chrome) + Selenium for dynamic content.  
   - **Data:** Scraped 30,000+ courses from Udemy-like platforms, capturing `Title`, `Price`, `Rating`, and `Instructor`.  
-- **03.2.2 Data Cleaning:**  
+##### 03.2.2 Data Cleaning:
   - **Power Query:** Removed HTML tags, split `Duration` into hours/minutes, and standardized `Price` (e.g., "£49.99" → 49.99).  
   - **Language Detection:** Custom M queries identified languages using Unicode ranges (e.g., Arabic: U+0600–U+06FF).  
 
