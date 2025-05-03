@@ -26,17 +26,17 @@
 - [08. Cubes Creation Using SSAS](#08-cubes-creation-using-ssas)
 - [09. Reports Creation Using SSRS](#09-reports-creation-using-ssrs)
 - [10. Dashboards](#10-dashboards)
-  - [10.1 Power BI Dashboards](#101-power-bi-dashboards)
-    - [10.1.1 Power BI Integration Dashboard](#1011-power-bi-integration-dashboard)
-      - [10.1.1.1 Studify Admin Dashboard](#10111-studify-admin-dashboard-power-bi)
-      - [10.1.1.2 Studify Instructor Dashboard](#10112-studify-instructor-dashboard-power-bi)
-      - [10.1.1.3 Studify Student Dashboard](#10113-studify-student-dashboard-power-bi)
-    - [10.1.2 Power BI Data Warehouse Dashboards](#1012-power-bi-data-warehouse-dashboards)
-      - [10.1.2.1 Studify-DWH Course Enrolment Dashboard](#10121‑studify‑dwh‑course‑enrollment‑dashboard)
-      - [10.1.2.2 Studify-DWH Course Order Dashboard](#10122-studify-dwh-course-order-dashboard)
-      - [10.1.2.3 Studify-DWH Data Mart Dashboard](#10123-studify-dwh-data-mart-dashboard)
-      - [10.1.2.4 Studify-DWH Instructor Dashboard](#10124-studify-dwh-instructor-dashboard)
-      - [10.1.2.5 Studify-DWH Student Dashboard](#10125-studify-dwh-student-dashboard)
+- [10.1 Power BI Dashboards](#101-power-bi-dashboards)
+  - [10.1.1 Power BI Integration Dashboards](#1011-power-bi-integration-dashboards)
+    - [10.1.1.1 Studify Admin Dashboards](#10111-studify-admin-dashboards)
+    - [10.1.1.2 Studify Instructor Dashboard](#10112-studify-instructor-dashboard)
+    - [10.1.1.3 Studify Student Dashboard](#10113-studify-student-dashboard)
+  - [10.1.2 Power BI Data Warehouse Dashboards](#1012-power-bi-data-warehouse-dashboards)
+    - [10.1.2.1 Studify-DWH Course Enrollment Dashboard](#10121-studify-dwh-course-enrollment-dashboard)
+    - [10.1.2.2 Studify-DWH Course Order Dashboard](#10122-studify-dwh-course-order-dashboard)
+    - [10.1.2.3 Studify-DWH Data Mart Dashboard](#10123-studify-dwh-data-mart-dashboard)
+    - [10.1.2.4 Studify-DWH Instructor Dashboard](#10124-studify-dwh-instructor-dashboard)
+    - [10.1.2.5 Studify-DWH Student Dashboard](#10125-studify-dwh-student-dashboard)
   - [10.2 Tableau Dashboards](#102-tableau-dashboards)
   - [10.3 Excel Dashboards](#103-excel-dashboards)
   - [10.4 Python Dashboards](#104-python-dashboards)
@@ -185,7 +185,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 #### 10.1 Power BI Dashboards  
 
 ##### 10.1.1 Power BI Integration Dashboards
-**10.1.1.1 Studify Admin Dashboard**  
+###### 10.1.1.1 Studify Admin Dashboards
 ![Studify Admin Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/raw/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Admin%20Dashboard.gif)
 - **Pages:**  
   - **Platform Overview:** Real-time metrics (active users, revenue, server health).  
@@ -195,7 +195,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Drillthrough:** Click a country → view top courses in that region.  
   - **Alerts:** SMS/email notifications for downtime or fraud detection.  
 
-**10.1.1.2 Studify Instructor Dashboard**  
+###### 10.1.1.2 Studify Instructor Dashboard 
 ![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Instructor%20Dashboarrd.gif)
 - **Pages:**  
   - **Earnings Report:** Revenue by course, payment method, and student demographics.  
@@ -205,7 +205,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Benchmarking:** Compare performance against category averages.  
   - **Export:** Generate PDF reports for tax/ROI analysis.  
 
-**10.1.1.3 Studify Student Dashboard**  
+###### 10.1.1.3 Studify Student Dashboard  
 ![Studify Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Student%20Dashboard.gif)
 - **Pages:**  
   - **Learning Journey:** Progress timelines, course grades, and achievement badges.  
@@ -216,33 +216,33 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Gamification:** Unlock badges for milestones (e.g., "10 Courses Completed").  
 
 ##### 10.1.2 Power BI Data Warehouse Dashboards  
-**10.1.2.1 Studify-DWH Course Enrollment Dashboard**
+###### 10.1.2.1 Studify-DWH Course Enrollment Dashboard
 ![Studify Enrollment Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Enrollment%20Dashboards.gif)
 - **Visualizations:**  
   - **YoY Growth:** Line charts showing 2024 enrollments (+38%).  
   - **Category Breakdown:** Treemaps (IT: 28%, Business: 22%).  
   - **Correlation Analysis:** Scatter plots (course duration vs. completion rate).  
 
-**10.1.2.2 Studify-DWH Course Order Dashboard** 
+###### 10.1.2.2 Studify-DWH Course Order Dashboard 
 ![Studify Course Order Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Course%20order%20Dashboards%20.gif)
 - **Visualizations:**  
   - **Sales Funnel:** Cart → Payment → Completion stages.  
   - **Revenue Maps:** Chloropleth maps highlighting top countries (USA: \$4.8M).  
   - **Discount Impact:** Pareto charts (top 20% discounts drive 80% sales).  
 
-**10.1.2.3 Studify-DWH Data Mart Dashboard**  
+###### 10.1.2.3 Studify-DWH Data Mart Dashboard  
 ![Studify Data Mart Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Cart%20Data%20Mart%20Dashboards.gif)
 - **Visualizations:**  
   - **Cart Abandonment:** Heatmaps by time/day (peak: Sundays 8 PM).  
   - **Discount Depth vs. Conversion:** Trend lines (46% avg discount).  
 
-**10.1.2.4 Studify-DWH Instructor Dashboard**  
+###### 10.1.2.4 Studify-DWH Instructor Dashboard  
 ![Studify DWH Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Instructor%20Dashboards.gif)
 - **Visualizations:**  
   - **Leaderboards:** Top instructors by revenue (e.g., "Dr. Smith: \$120K").  
   - **Radar Charts:** Engagement metrics (ratings vs. response time).  
 
-**10.1.2.5 Studify-DWH Student Dashboard**
+###### 10.1.2.5 Studify-DWH Student Dashboard
 ![Studify DWH Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Student%20Dashboard.gif)
 - **Visualizations:**  
   - **Progress Sankey:** Beginner → Advanced course pathways.  
