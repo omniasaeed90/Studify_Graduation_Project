@@ -124,8 +124,8 @@ The **ACID-compliant OLTP database** (22 tables) includes:
   - **Course Descriptions:** Produced SEO-optimized summaries using prompts like *"Generate a course outline for Advanced Python with 5 sections."*  
 
 #### 03.2 Web Scraping & Data Cleaning  
+##### 03.2.1 Web Scraping: 
 ![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Web%20Scrabing%20%26%20Data%20cleaning/Web%20Scrapping%20using%20Instant%20Data%20Scraber/Ph/Wep_Scraping.png)  
-##### 03.2.1 Web Scraping:  
   - **Tools & Workflow:**  
     - **Instant Data Scraper:** Extracted tabular data (categories, subcategories) from navigation sidebars.  
     - **Web Scraper (v1.96.16):** Handled dynamic content via infinite scroll, pagination ("Next" button automation), and randomized delays (1–20s).  
@@ -134,7 +134,8 @@ The **ACID-compliant OLTP database** (22 tables) includes:
     - **Hierarchies:** Scraped `Category → Subcategory` relationships (e.g., *Development → Web Development*).  
   - **Anti-Bot Mitigation:** Rotated user-agent strings and simulated human browsing patterns.  
 
-##### 03.2.2 Data Cleaning:  
+##### 03.2.2 Data Cleaning:
+
   - **Power Query Transformations:**  
     - **Structural:**  
       - Removed HTML/CSS artifacts (e.g., `ud-heading-md` → renamed to `Title`).  
