@@ -101,7 +101,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 
 #### 03.2 Web Scraping & Data Cleaning
 ![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Web%20Scrabing%20%26%20Data%20cleaning/Web%20Scrapping%20using%20Instant%20Data%20Scraber/Ph/Wep_Scraping.png)
-- **03.2.1 Web Scraping:**  
+##### 03.2.1 Web Scraping: 
   - **Tools:** Instant Data Scraper (Chrome) + Selenium for dynamic content.  
   - **Data:** Scraped 30,000+ courses from Udemy-like platforms, capturing `Title`, `Price`, `Rating`, and `Instructor`.  
 - **03.2.2 Data Cleaning:**  
