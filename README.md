@@ -54,108 +54,183 @@ Key outcomes included a 27% reduction in cart abandonment through targeted disco
 
 ---
 
-### 01. EERD: Enhanced Entity-Relationship Diagram
-![EERD Image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/01_ERD/Studify_EERD.jpg) 
-The Enhanced Entity-Relationship Diagram (EERD) models:  
-- **Core Entities:** 18 entities including `Users`, `Courses`, `Orders`, and `Quizzes`.  
-- **Hierarchies:** `Category → Subcategory → Course` with `IsPaid` and `IsApproved` flags.  
-- **Complex Relationships:**  
-  - **M:N:** `Students` can enroll in multiple `Courses`, tracked via `Enrollments` (with `ProgressPercentage`).  
-  - **Self-Referencing:** `PrerequisiteCourses` allow courses to depend on others (e.g., "Advanced Python" requires "Python Basics").  
+### 01. EERD: Enhanced Entity-Relationship Diagram  
+![EERD Image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/01_ERD/Studify_EERD.jpg)  
+The EERD models an **Online Learning Management System** with:  
+- **Core Entities (18):**  
+  - `Users` as a super-entity supporting overlapping roles (`Student`, `Instructor`, `Admin`) with composite attributes (`Address`, multi-valued `SocialMedia`).  
+  - Course management: `Courses` (with pricing flags `IsPaid`/`IsApproved`, derived metrics like `NoSubscribers`), `Sections`, `Lessons`, and hierarchical `Category → Subcategory`.  
+  - Interactions: `Orders`, `Carts`, `Quizzes`, `Questions`, `Answers`, and `Notifications`.  
 
+- **Key Relationships:**  
+  - **M:N:**  
+    - `Student-Course` enrollment (tracking `StartDate`, `ProgressPercentage`, `CertificationURL`).  
+    - `User-Role` assignments (mandatory for users), `Cart/Order-Course` linkages.  
+  - **1:M:**  
+    - Structural hierarchies: `Course → Section → Lesson`, `Quiz → Questions`, `Question → Answers`.  
+    - Instructor-course creation, student-order placement.  
+  - **1:1:** `Course ↔ Quiz` (optional for courses).  
+
+- **Enhanced Features:**  
+  - **Attributes:** Composite (`Address`), multi-valued (`CourseRequirements`), derived (`TotalStudents`, `TotalAmount` in orders).  
+  - **Constraints:** Total participation (e.g., every `Order` must include courses), partial participation (e.g., users may lack carts).  
+  - **Hierarchies:** Mandatory `Category-Subcategory` relationships, course categorization.  
 ---
 
 ### 02. Mapping & Database Structure  
 ![Database Diagram](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/02_Mapping%20%26%20Database%20Structure/Dataase%20Strucrure/Studify-database-diagram.png)  
 
 #### 02.1 Mapping  
-- **User Inheritance:** `AspNetUsers` (ASP.NET Identity) links to `Students` and `Instructors` via 1:1 relationships using `UserID`.  
-- **Course Structure:** Each `Course` contains multiple `Sections`, which include `Lessons` (video/article types).  
-- **Cart System:** `Cart` and `CartCourse` tables manage pre-purchase selections with `LastModified` timestamps.  
+- **User Inheritance:**  
+  - `AspNetUsers` (ASP.NET Identity) serves as the super-entity, with `Students` and `Instructors` linked via 1:1 relationships using shared `Id`. Overlapping roles (e.g., student-instructors) are allowed.  
+  - **Admins:** Managed through `AspNetRoles` without a separate table.  
+- **Course Structure:**  
+  - Hierarchical `Course → Section → Lesson` with multi-valued attributes stored in composite tables (`CourseRequirements`, `CourseGoals`).  
+  - **Quizzes:** Linked to courses (1:1) with `QuizQuestions` in a 1:M relationship.  
+- **M:N Relationships:**  
+  - `Enrollments`: Tracks student progress (`ProgressPercentage`, `CertificationURL`).  
+  - `CartCourse`/`CourseOrder`: Manages pre-purchase carts and order histories with `OrderPrice` snapshots.  
 
 #### 02.2 Database Structure  
-The **OLTP database** comprises 22 tables optimized for ACID transactions:  
-- **Core Tables:**  
-  - **Courses:** `CourseID`, `Title`, `Price`, `Duration`, `Rating` (1–5), `Status` (Draft/Published).  
-  - **Enrollments:** `EnrollmentID`, `StartDate`, `CompletionDate`, `ProgressPercentage`, `Grade`.  
-  - **Orders:** `OrderID`, `PaymentMethod`, `TotalAmount`, `Discount`, `Status` (Completed/Cancelled).  
-- **Indexes:**  
-  - **Clustered:** `CourseID` (Courses), `UserID` (AspNetUsers).  
-  - **Non-Clustered:** `EnrollmentDate`, `OrderDate`, `Rating`.  
-- **Constraints:**  
-  - **Check:** `Rating` BETWEEN 1 AND 5, `Discount` ≥ 0.  
-  - **Unique:** `Email` (AspNetUsers), `CourseURL` (Courses).  
+The **ACID-compliant OLTP database** (22 tables) includes:  
+- **Core Features:**  
+  - **Courses:** Derived fields (`CurrentPrice` = `Price - Discount`, `NoSubscribers`), moderation flags (`IsApproved`), and multimedia links (`VideoUrl`).  
+  - **Progress Tracking:** `Progresses` table logs lesson completion, while `Enrollments` calculates `ProgressPercentage` dynamically.  
+  - **Audit & Soft Delete:** `CreatedDate`, `ModifiedDate`, and `IsDeleted` enforced universally.  
+- **Optimization:**  
+  - **Indexes:** Clustered on `CourseID` (Courses) and `UserID` (AspNetUsers); non-clustered on `EnrollmentDate`, `Rating`.  
+  - **Constraints:** `CHECK(Rating BETWEEN 1-5)`, `UNIQUE(Email, CourseURL)`, and composite keys (e.g., `CourseRequirements(Requirement, CourseId)`).  
+- **Deviations:**  
+  - `BestSeller` stored as static text (`nvarchar(20)`) instead of derived metrics.  
+  - `QuizDate` replaced with `CreatedDate` for audit consistency.  
 
 ---
 
 ### 03. Data Generation & Web Scraping  
 
 #### 03.1 Data Generation  
-![Data Generation image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Data%20generation/Ph/Data%20generation%20over%20view.png)
-- **Mockaroo:** Generated 60,000+ synthetic users with:  
-  - Realistic distributions (e.g., 55% ages 18–34, 33% from the USA).  
-  - GDPR-compliant anonymization (e.g., `FirstName` → "User_123").  
-- **ChatGPT:** Scripted Python to create:  
-  - **Quizzes:** 10,000+ questions (MCQ/True-False) with answer keys.  
-  - **Course Descriptions:** SEO-optimized text using prompts like *"Generate a course summary for Advanced Python"*.  
+![Data Generation image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Data%20generation/Ph/Data%20generation%20over%20view.png)  
+- **Mockaroo Workflow:**  
+  - **Synthetic Users (60,000+):** Generated GDPR-compliant test data with:  
+    - **Demographics:** Age (20–60), gender (M/F/W for testing), and geolocation (`Country`, `State`, `City` with 10% nulls for realism).  
+    - **Authentication:** `PasswordHash` using bcrypt (`$2a$10$...`) and custom-domain emails (e.g., `@flygah.com`).  
+  - **Challenges:**  
+    - **Invalid Emails:** Enforced regex validation (`^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$`).  
+    - **Country Typos:** Restricted `CountryName` to predefined lists (e.g., "Brazil," "China").  
+  - **Scalability:** Used Docker for local batch processing to avoid browser lag during large exports.  
 
-#### 03.2 Web Scraping & Data Cleaning
-![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Web%20Scrabing%20%26%20Data%20cleaning/Web%20Scrapping%20using%20Instant%20Data%20Scraber/Ph/Wep_Scraping.png)
-##### 03.2.1 Web Scraping: 
-  - **Tools:** Instant Data Scraper (Chrome) + Selenium for dynamic content.  
-  - **Data:** Scraped 30,000+ courses from Udemy-like platforms, capturing `Title`, `Price`, `Rating`, and `Instructor`.  
-##### 03.2.2 Data Cleaning:
-  - **Power Query:** Removed HTML tags, split `Duration` into hours/minutes, and standardized `Price` (e.g., "£49.99" → 49.99).  
-  - **Language Detection:** Custom M queries identified languages using Unicode ranges (e.g., Arabic: U+0600–U+06FF).  
+- **ChatGPT Integration:**  
+  - **Quizzes (10,000+):** Scripted Python to generate MCQs/True-False questions with answer keys (e.g., *"What is encapsulation?"* → *"A: OOP principle"*).  
+  - **Course Descriptions:** Produced SEO-optimized summaries using prompts like *"Generate a course outline for Advanced Python with 5 sections."*  
+
+#### 03.2 Web Scraping & Data Cleaning  
+![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Web%20Scrabing%20%26%20Data%20cleaning/Web%20Scrapping%20using%20Instant%20Data%20Scraber/Ph/Wep_Scraping.png)  
+##### 03.2.1 Web Scraping:  
+  - **Tools & Workflow:**  
+    - **Instant Data Scraper:** Extracted tabular data (categories, subcategories) from navigation sidebars.  
+    - **Web Scraper (v1.96.16):** Handled dynamic content via infinite scroll, pagination ("Next" button automation), and randomized delays (1–20s).  
+  - **Data Scope:**  
+    - **30,000+ Courses:** Captured `Title`, `Instructor`, `Current/Original Price`, `Rating` (1–5), `Duration`, and `Enrollment` (e.g., "2,500 reviews" → `NoSubscribers`).  
+    - **Hierarchies:** Scraped `Category → Subcategory` relationships (e.g., *Development → Web Development*).  
+  - **Anti-Bot Mitigation:** Rotated user-agent strings and simulated human browsing patterns.  
+
+##### 03.2.2 Data Cleaning:  
+  - **Power Query Transformations:**  
+    - **Structural:**  
+      - Removed HTML/CSS artifacts (e.g., `ud-heading-md` → renamed to `Title`).  
+      - Split `Duration` into hours (e.g., *"1h 30m"* → `1.5`).  
+      - Standardized `Price` (e.g., *"EÂ£249.99"* → `249.99` via `Text.Replace`).  
+    - **Derived Fields:**  
+      - **Discount:** Calculated as `([Original Price] - [Current Price]) / [Original Price] * 100` (handled `Original Price = 0`).  
+      - **Language Detection:** Custom M logic using Unicode ranges (e.g., Arabic: `U+0600–U+06FF`).  
+      - **Status:** Simulated 60% `Published`, 25% `Draft`, 15% `Archived` via randomized assignment.  
+    - **Composite Tables:** Normalized multi-valued attributes into `CourseRequirements` and `CourseGoals` (e.g., *"Basic Python, OOP"* → individual rows).  
+  - **Constraints & Integrity:**  
+    - Enforced `CHECK(Rating BETWEEN 1 AND 5)`, `UNIQUE(CourseURL)`, and non-null `sub_id`.  
+    - Filtered invalid instructors using blocklists (e.g., *"A Course You'll Actually Finish..."*).  
+
+**Impact:** Cleaned dataset enabled accurate analytics (e.g., discount trends, language distribution) and seamless integration with the OLTP database.  
 
 ---
 
-### 04. Data Population
-![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/04_Data%20Population/PH/Data%20population.png)
-- **SSIS Packages:** 20+ packages automated data ingestion from Excel/CSV to SQL Server.  
-- **Key Workflows:**  
-  - **Lookups:** Validated `CourseID` and `UserID` against existing records.  
-  - **Derived Columns:** Calculated `CurrentPrice` = `OriginalPrice` - `Discount`.  
-  - **Error Handling:** Redirected failed rows (e.g., invalid dates) to `ErrorLogs`.  
-- **Performance:** Buffered 100,000 rows per batch to optimize memory usage.  
+### 04. Data Population  
+![Data Population](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/04_Data%20Population/PH/Data%20population.png)  
+- **SSIS Workflow:** Designed a single **Visual Studio SSIS package** to automate ingestion of **20 Excel files** (e.g., `Users.xlsx`, `Orders.xlsx`) into SQL Server tables.  
+- **Key Components:**  
+  - **Excel Sources:** Configured 22 connection managers for Excel files (e.g., `Lessons.xlsx` ➔ `dbo.Lessons`).  
+  - **OLE DB Destinations:** Mapped columns to SQL tables with strict type validation (e.g., `INT` vs `NVARCHAR`).  
+  - **Data Flow Tasks:** Processed large files (e.g., 10MB+ `Lessons.xlsx`) by optimizing buffer sizes.  
+- **Challenges & Solutions:**  
+  - **Data Type Mismatches:** Used `Data Conversion` transforms for Excel-to-SQL compatibility.  
+  - **Missing Columns:** Preprocessed Excel files to align headers with SQL schemas.  
+  - **Performance:** Batched rows to avoid memory overload and validated outputs post-execution.  
+- **Integrity Checks:**  
+  - Verified column mappings (e.g., `Students.xlsx` → `dbo.Students`).  
+  - Enforced constraints (e.g., non-null `UserID`, valid `Rating` ranges).  
+- **Outcome:** Successfully populated **22 tables** including `Enrollments`, `CourseRequirements`, and `Progress`, enabling seamless integration with the OLTP database.  
 
 ---
 
 ### 05. Stored Procedures & Views  
-- **Stored Procedures (7):**  
-  - **System Stored Procedures:**  
-    - Built‑in routines shipped with SQL Server for server‑level and metadata operations (e.g. `sp_who`, `sp_help`).  
-    - **Note:** no system procs are defined in this project.  
+**Stored Procedures (85):**  
+Organized into four functional categories for secure, scalable operations:  
 
-  - **Extended Stored Procedures:**  
-    - DLL‑backed procedures that allow SQL Server to call external OS‑level functions.  
-    - **Note:** none are used here.  
+1. **Get Procedures (Select):**  
+   - **Purpose:** Retrieve filtered, sorted, and analytics-ready data.  
+   - **Features:**  
+     - **Filtering/Sorting:** Parameters like `@MinRating`, `@CourseId`, and date ranges.  
+     - **JSON Output:** Structured results (e.g., `sp_GetCourseDetailsById` returns course metadata + JSON-formatted goals/requirements).  
+     - **Progress Metrics:** `sp_GetStudentProgress` calculates `ProgressPercentage` and generates completion heatmaps.  
+     - **Hierarchical Data:** Formats sections/lessons for frontend rendering (e.g., parent-child relationships).  
 
-  - **User‑Defined Stored Procedures:**  
-    - `sp_GetCoursesByYear` (Courses by Year Procedure: retrieves course ID, name, price & creation date for courses between specified start/end dates).  
-    - `sp_GetInstructorCoursesByCountry` (Instructor Courses by Country: returns each instructor’s country, name, course creation date, ID & price).  
-    - `sp_GetCoursesByCategory` (Courses by Category: totals revenue per course for a given category & year).  
-    - `sp_GetStudentProgressByCourse` (Student Progress by Course: lists students’ names, enrollment dates & progress % for a specific course).  
-    - `sp_GetCoursesInCartByStudent` (Courses in Cart by Student: returns cart items with course name, price & last modified date).  
-    - `sp_GetTopRatedCoursesByYear` (Top Rated Courses by Year: retrieves course name, average rating & total reviews for a specified year).  
-    - `sp_GetEnrollmentTrendsByYear` (Enrollment Trends by Year: returns total enrollments per year for trend analysis).
-- **Views (11):**  
-  - **Fact Views:**  
-    - `vw_EnrollmentCountByCourse` (total enrollments per course)  
-    - `vw_RevenueByCourse` (total revenue per course)  
-    - `vw_TopRatedCourses` (average rating & review count per course)  
-    - `vw_StudentProgressByCourse` (student names, enrollment dates & progress % for each course)  
-    - `vw_InstructorsByTotalStudents` (total students taught per instructor)  
+2. **Modify Procedures (Update):**  
+   - **Purpose:** Ensure transactional integrity during updates.  
+   - **Features:**  
+     - **Auto-Recalculations:** `sp_UpdateCourse` refreshes `CurrentPrice` and `IsFree` flags after price/discount changes.  
+     - **Cascading Updates:** `sp_UpdateLessonProgress` triggers course-level `ProgressPercentage` recalculation.  
+     - **Validation:** Role checks (e.g., only instructors can update course content).  
 
-  - **Category Views:**  
-    - `vw_CoursesByCategory` (revenue & listing by course category)  
-    - `vw_DiscountedCourses` (all courses with active discounts)  
-    - `vw_CoursesAboveAveragePrice` (courses priced above the overall average)  
+3. **Input Procedures (Insert):**  
+   - **Purpose:** Insert records with validation and initialization.  
+   - **Features:**  
+     - **Atomic Operations:** `sp_CreateUser` creates ASP.NET Identity records, initializes `Students`/`Instructors` profiles, and assigns roles in one transaction.  
+     - **Duplicate Prevention:** Blocks duplicate enrollments or cart entries.  
+     - **Auto-Generated Fields:** Sets audit timestamps (`CreatedDate`) and initializes counters (e.g., `TotalCourses=0`).  
 
-  - **Utility Views:**  
-    - `vw_StudentsAndInstructorsByCity` (lists all students & instructors grouped by city)  
-    - `vw_AlphabeticalListOfCourses` (course catalog sorted A→Z)  
-    - `vw_CurrentCourseList` (all active courses in the system)  
+4. **Remove Procedures (Delete):**  
+   - **Purpose:** Soft/hard delete with cleanup logic.  
+   - **Features:**  
+     - **Soft Delete:** Default `IsDeleted` flagging for auditability (`sp_SoftDeleteEnrollment`).  
+     - **Cascading Deletes:** `sp_DeleteCourse` removes dependent sections, lessons, and quizzes.  
+     - **Resource Management:** `sp_RemoveCourseFromCart` updates cart totals and deletes empty carts.  
+
+**Views (40):**  
+Designed for analytics and reporting with Power BI integration:  
+
+- **Dimension Views (Descriptive):**  
+  - **Examples:**  
+    - `VDimCourse`: Course attributes (Category, `Duration`, `Price`).  
+    - `VDimUser`: Demographics, roles, and social media links.  
+    - `VSupDimQuiz`: Question types/counts for difficulty analysis.  
+
+- **Fact Views (Metrics):**  
+  - **Examples:**  
+    - `vw_FactEnrollment`: Tracks `ProgressPercentage`, grades, and enrollment dates for trend analysis.  
+    - `vw_FactOrder`: Aggregates revenue, discounts, and payment methods.  
+    - `vw_FactCart`: Analyzes cart abandonment rates and popular courses.  
+
+- **Utility Views (Simplification):**  
+  - **Examples:**  
+    - `vw_CourseRevenue`: Estimates revenue splits (70% instructor earnings).  
+    - `vw_StudentLearningActivity`: Measures engagement via active courses/learning hours.  
+    - `vw_InstructorPerformance`: Aggregates KPIs (students taught, average rating).  
+
+**Key System Features:**  
+- **Security:** Role-based access control (e.g., student vs. instructor procedures).  
+- **Scalability:** Optimized indexing on `CourseID`, `UserID`, and date fields.  
+- **Analytics Readiness:** Star schema design with Power BI-compatible views.  
+- **Maintainability:** Soft-delete patterns and transaction-safe operations.  
+
 ---
 
 ### 06. ETL Process Using SSIS  
