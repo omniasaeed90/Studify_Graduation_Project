@@ -55,7 +55,7 @@ Key outcomes included a 27% reduction in cart abandonment through targeted disco
 ---
 
 ### 01. EERD: Enhanced Entity-Relationship Diagram
-![EERD Image](link_to_image)  
+![EERD Image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/01_ERD/Studify_EERD.jpg) 
 The Enhanced Entity-Relationship Diagram (EERD) models:  
 - **Core Entities:** 18 entities including `Users`, `Courses`, `Orders`, and `Quizzes`.  
 - **Hierarchies:** `Category → Subcategory → Course` with `IsPaid` and `IsApproved` flags.  
@@ -66,7 +66,7 @@ The Enhanced Entity-Relationship Diagram (EERD) models:
 ---
 
 ### 02. Mapping & Database Structure  
-![Database Diagram](link_to_image)  
+![Database Diagram](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/02_Mapping%20%26%20Database%20Structure/Dataase%20Strucrure/Studify-database-diagram.png)  
 
 #### 02.1 Mapping  
 - **User Inheritance:** `AspNetUsers` (ASP.NET Identity) links to `Students` and `Instructors` via 1:1 relationships using `UserID`.  
@@ -91,6 +91,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ### 03. Data Generation & Web Scraping  
 
 #### 03.1 Data Generation  
+![Data Generation image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Data%20generation/Ph/Data%20generation%20over%20view.png)
 - **Mockaroo:** Generated 60,000+ synthetic users with:  
   - Realistic distributions (e.g., 55% ages 18–34, 33% from the USA).  
   - GDPR-compliant anonymization (e.g., `FirstName` → "User_123").  
@@ -98,7 +99,8 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Quizzes:** 10,000+ questions (MCQ/True-False) with answer keys.  
   - **Course Descriptions:** SEO-optimized text using prompts like *"Generate a course summary for Advanced Python"*.  
 
-#### 03.2 Web Scraping & Data Cleaning  
+#### 03.2 Web Scraping & Data Cleaning
+![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Web%20Scrabing%20%26%20Data%20cleaning/Web%20Scrapping%20using%20Instant%20Data%20Scraber/Ph/Wep_Scraping.png)
 - **03.2.1 Web Scraping:**  
   - **Tools:** Instant Data Scraper (Chrome) + Selenium for dynamic content.  
   - **Data:** Scraped 30,000+ courses from Udemy-like platforms, capturing `Title`, `Price`, `Rating`, and `Instructor`.  
@@ -108,7 +110,8 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 
 ---
 
-### 04. Data Population  
+### 04. Data Population
+![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/04_Data%20Population/PH/Data%20population.png)
 - **SSIS Packages:** 20+ packages automated data ingestion from Excel/CSV to SQL Server.  
 - **Key Workflows:**  
   - **Lookups:** Validated `CourseID` and `UserID` against existing records.  
@@ -131,6 +134,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ---
 
 ### 06. ETL Process Using SSIS  
+![ETL Process Using SSIS image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/06_ETL%20Process%20Using%20SSIS/SSIS%20Process%20Screenshots/SSIS%20Data%20Flow%20ETL%20Process.png)
 - **Workflow:**  
   1. **Extract:** Pulled data from `AspNetUsers`, `Courses`, and `Enrollments` via OLE DB.  
   2. **Transform:**  
@@ -152,7 +156,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ---
 
 ### 08. Cubes Creation Using SSAS  
-![Cube Image](link_to_image)  
+![Cube Image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/08_Cubes%20Creation%20Using%20SSAS/SSAS_PH/Analysis%20SSAS.png)  
 - **Sales Cube:**  
   - **Measures:** `Total Revenue`, `Avg Discount`, `Payment Method Share`.  
   - **Dimensions:** `DimDate` (Year/Quarter), `DimGeography` (Country/Region).  
@@ -166,7 +170,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ---
 
 ### 09. Reports Creation Using SSRS  
-![SSRS GIF](link_to_gif)  
+![SSRS GIF](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/09_Reporrts%20Creation%20Using%20SSRS/SSRS_PH/Studify%20Reports.gif)  
 1. **Enrollment by Category:** Stacked bars showing enrollment distribution (IT: 28%, Business: 22%).  
 2. **Revenue by Geography:** Drill-down maps from country → state → city.  
 3. **Instructor Performance:** Scorecards with revenue, ratings, and student feedback.  
