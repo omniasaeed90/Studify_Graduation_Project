@@ -17,7 +17,7 @@
 - [03. Data Generation & Web Scraping](#03-data-generation--web-scraping)
   - [03.1 Data Generation](#031-data-generation)
   - [03.2 Web Scraping & Data Cleaning](#032-web-scraping--data-cleaning)
-    - [03.2.1 Web Scraping](#0321-web-scraping)
+    - [03.2.1 Web Scraping](#0321-web-scraping)
     - [03.2.2 Data Cleaning](#0322-data-cleaning)
 - [04. Data Population](#04-data-population)
 - [05. Stored Procedures & Views](#05-stored-procedures--views)
@@ -32,7 +32,7 @@
       - [10.1.1.2 Studify Instructor Dashboard](#10112-studify-instructor-dashboard-power-bi)
       - [10.1.1.3 Studify Student Dashboard](#10113-studify-student-dashboard-power-bi)
     - [10.1.2 Power BI Data Warehouse Dashboards](#1012-power-bi-data-warehouse-dashboards)
-      - [10.1.2.1 Studify-DWH Course Enrolment Dashboard](#10121-studify-dwh-course-enrolment-dashboard)
+      - [10.1.2.1 Studify-DWH Course Enrolment Dashboard](#10121‑studify‑dwh‑course‑enrollment‑dashboard)
       - [10.1.2.2 Studify-DWH Course Order Dashboard](#10122-studify-dwh-course-order-dashboard)
       - [10.1.2.3 Studify-DWH Data Mart Dashboard](#10123-studify-dwh-data-mart-dashboard)
       - [10.1.2.4 Studify-DWH Instructor Dashboard](#10124-studify-dwh-instructor-dashboard)
@@ -55,7 +55,7 @@ Key outcomes included a 27% reduction in cart abandonment through targeted disco
 ---
 
 ### 01. EERD: Enhanced Entity-Relationship Diagram
-![EERD Image](link_to_image)  
+![EERD Image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/01_ERD/Studify_EERD.jpg) 
 The Enhanced Entity-Relationship Diagram (EERD) models:  
 - **Core Entities:** 18 entities including `Users`, `Courses`, `Orders`, and `Quizzes`.  
 - **Hierarchies:** `Category → Subcategory → Course` with `IsPaid` and `IsApproved` flags.  
@@ -66,7 +66,7 @@ The Enhanced Entity-Relationship Diagram (EERD) models:
 ---
 
 ### 02. Mapping & Database Structure  
-![Database Diagram](link_to_image)  
+![Database Diagram](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/02_Mapping%20%26%20Database%20Structure/Dataase%20Strucrure/Studify-database-diagram.png)  
 
 #### 02.1 Mapping  
 - **User Inheritance:** `AspNetUsers` (ASP.NET Identity) links to `Students` and `Instructors` via 1:1 relationships using `UserID`.  
@@ -91,6 +91,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ### 03. Data Generation & Web Scraping  
 
 #### 03.1 Data Generation  
+![Data Generation image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Data%20generation/Ph/Data%20generation%20over%20view.png)
 - **Mockaroo:** Generated 60,000+ synthetic users with:  
   - Realistic distributions (e.g., 55% ages 18–34, 33% from the USA).  
   - GDPR-compliant anonymization (e.g., `FirstName` → "User_123").  
@@ -98,17 +99,19 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Quizzes:** 10,000+ questions (MCQ/True-False) with answer keys.  
   - **Course Descriptions:** SEO-optimized text using prompts like *"Generate a course summary for Advanced Python"*.  
 
-#### 03.2 Web Scraping & Data Cleaning  
-- **03.2.1 Web Scraping:**  
+#### 03.2 Web Scraping & Data Cleaning
+![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Web%20Scrabing%20%26%20Data%20cleaning/Web%20Scrapping%20using%20Instant%20Data%20Scraber/Ph/Wep_Scraping.png)
+##### 03.2.1 Web Scraping: 
   - **Tools:** Instant Data Scraper (Chrome) + Selenium for dynamic content.  
   - **Data:** Scraped 30,000+ courses from Udemy-like platforms, capturing `Title`, `Price`, `Rating`, and `Instructor`.  
-- **03.2.2 Data Cleaning:**  
+##### 03.2.2 Data Cleaning:
   - **Power Query:** Removed HTML tags, split `Duration` into hours/minutes, and standardized `Price` (e.g., "£49.99" → 49.99).  
   - **Language Detection:** Custom M queries identified languages using Unicode ranges (e.g., Arabic: U+0600–U+06FF).  
 
 ---
 
-### 04. Data Population  
+### 04. Data Population
+![Web Scrabing image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/04_Data%20Population/PH/Data%20population.png)
 - **SSIS Packages:** 20+ packages automated data ingestion from Excel/CSV to SQL Server.  
 - **Key Workflows:**  
   - **Lookups:** Validated `CourseID` and `UserID` against existing records.  
@@ -131,6 +134,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ---
 
 ### 06. ETL Process Using SSIS  
+![ETL Process Using SSIS image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/06_ETL%20Process%20Using%20SSIS/SSIS%20Process%20Screenshots/SSIS%20Data%20Flow%20ETL%20Process.png)
 - **Workflow:**  
   1. **Extract:** Pulled data from `AspNetUsers`, `Courses`, and `Enrollments` via OLE DB.  
   2. **Transform:**  
@@ -152,7 +156,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ---
 
 ### 08. Cubes Creation Using SSAS  
-![Cube Image](link_to_image)  
+![Cube Image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/08_Cubes%20Creation%20Using%20SSAS/SSAS_PH/Analysis%20SSAS.png)  
 - **Sales Cube:**  
   - **Measures:** `Total Revenue`, `Avg Discount`, `Payment Method Share`.  
   - **Dimensions:** `DimDate` (Year/Quarter), `DimGeography` (Country/Region).  
@@ -166,7 +170,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ---
 
 ### 09. Reports Creation Using SSRS  
-![SSRS GIF](link_to_gif)  
+![SSRS GIF](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/09_Reporrts%20Creation%20Using%20SSRS/SSRS_PH/Studify%20Reports.gif)  
 1. **Enrollment by Category:** Stacked bars showing enrollment distribution (IT: 28%, Business: 22%).  
 2. **Revenue by Geography:** Drill-down maps from country → state → city.  
 3. **Instructor Performance:** Scorecards with revenue, ratings, and student feedback.  
@@ -180,7 +184,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 
 #### 10.1 Power BI Dashboards  
 
-##### 10.1.1 Power BI Integration Dashboards  
+##### 10.1.1 Power BI Integration Dashboards
 **10.1.1.1 Studify Admin Dashboard**  
 - **Pages:**  
   - **Platform Overview:** Real-time metrics (active users, revenue, server health).  
@@ -209,7 +213,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Gamification:** Unlock badges for milestones (e.g., "10 Courses Completed").  
 
 ##### 10.1.2 Power BI Data Warehouse Dashboards  
-**10.1.2.1 Studify-DWH Course Enrollment Dashboard**  
+**10.1.2.1 Studify-DWH Course Enrollment Dashboard**
 - **Visualizations:**  
   - **YoY Growth:** Line charts showing 2024 enrollments (+38%).  
   - **Category Breakdown:** Treemaps (IT: 28%, Business: 22%).  
