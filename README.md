@@ -127,10 +127,23 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Modify:** `sp_UpdateCoursePrice` (adjusts prices and cascades changes to carts).  
   - **Input:** `sp_EnrollStudent` (validates prerequisites before enrollment).  
   - **Remove:** `sp_ArchiveOldCourses` (moves inactive courses to history tables).  
-- **Views (40):**  
-  - **Analytics-Ready:** `vw_StudentProgress` (progress + grades), `vw_CourseRevenue` (revenue by category).  
-  - **Utility:** `vw_InactiveUsers` (users with no logins in 6 months).  
+- **Views (11):**  
+  - **Fact Views:**  
+    - `vw_EnrollmentCountByCourse` (total enrollments per course)  
+    - `vw_RevenueByCourse` (total revenue per course)  
+    - `vw_TopRatedCourses` (average rating & review count per course)  
+    - `vw_StudentProgressByCourse` (student names, enrollment dates & progress % for each course)  
+    - `vw_InstructorsByTotalStudents` (total students taught per instructor)  
 
+  - **Category Views:**  
+    - `vw_CoursesByCategory` (revenue & listing by course category)  
+    - `vw_DiscountedCourses` (all courses with active discounts)  
+    - `vw_CoursesAboveAveragePrice` (courses priced above the overall average)  
+
+  - **Utility Views:**  
+    - `vw_StudentsAndInstructorsByCity` (lists all students & instructors grouped by city)  
+    - `vw_AlphabeticalListOfCourses` (course catalog sorted A→Z)  
+    - `vw_CurrentCourseList` (all active courses in the system)  
 ---
 
 ### 06. ETL Process Using SSIS  
