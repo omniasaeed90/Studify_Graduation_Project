@@ -135,7 +135,7 @@ The **ACID-compliant OLTP database** (22 tables) includes:
   - **Anti-Bot Mitigation:** Rotated user-agent strings and simulated human browsing patterns.  
 
 ##### 03.2.2 Data Cleaning:
-
+![Data Cleaning](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/03_Data%20Generation%20%26%20Web%20Scrabing/Web%20Scrabing%20%26%20Data%20cleaning/Data%20Cleaning/Ph/Data%20cleaning.png)
   - **Power Query Transformations:**  
     - **Structural:**  
       - Removed HTML/CSS artifacts (e.g., `ud-heading-md` → renamed to `Title`).  
@@ -271,36 +271,111 @@ Designed for analytics and reporting with Power BI integration:
 
 ---
 
-### 07. Deployment of DB and DWH to AZURE  
-- **Azure SQL Database:** Hosted transactional DB with geo-replication for failover.  
-- **Azure Synapse:** Deployed `UdemyDWH` with columnstore indexes for OLAP.  
-- **Data Factory:** Orchestrated nightly ETL pipelines with error alerts to Teams.  
-- **Security:** Azure AD authentication + TDE (Transparent Data Encryption).  
+### 07. Deployment of DB and DWH to AZURE 
+![ETL Process Using SSIS image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/07_Deployment%20of%20DB%20and%20DWH%20on%20Azure/Azure%20Ph/Azure%20Deployment.png)  
+**Azure Infrastructure:**  
+- **OLTP Database:** `UdemyDB` hosted on **Azure SQL DB** with geo-replication for high availability and failover support.  
+- **OLAP Warehouse:** `Udemy_DWH` deployed via **Azure Synapse**, optimized with columnstore indexes and parallel query processing for analytics.  
+- **Orchestration:** **Azure Data Factory (ADF)** pipelines automate nightly ETL workflows, with error alerts routed to Microsoft Teams.  
+- **Resource Management:** All components (DB, DWH, ADF) are grouped under the `ITI` Resource Group for centralized monitoring and cost tracking.  
+
+**ETL Pipeline Design:**  
+1. **Extract-Load Phase:**  
+   - ADF *Copy Data* activities ingest raw data from `AspNetUsers`, `Courses`, and `Enrollments` into staging tables (e.g., `VDimUser`, `DimCourse`).  
+2. **Transform Phase:**  
+   - **Data Flows** apply business logic:  
+     - Join dimension tables via surrogate keys (`SupDimQuizKey`, `DimUserKey`).  
+     - Calculate derived fields like `ProgressPercentage` and `CurrentPrice`.  
+     - Enforce referential integrity before loading into `FactEnrollment` and `FactOrder`.  
+   - **SCD Handling:**  
+     - Type 2 for `DimUsers` (tracking profile/address changes historically).  
+     - Type 1 for `DimCourses` (overwriting price/language updates).  
+
+**Data Warehouse Structure:**  
+- **Star Schema:**  
+  - **Dimensions:** `DimDate` (time analysis), `DimUsers` (demographics), `DimCourses` (pricing/category hierarchy).  
+  - **Facts:** `FactEnrollment` (progress metrics), `FactOrder` (revenue trends), and `FactCarts` (cart behavior).  
+  - **Sub-Dimensions:** `SupDimSection` (content structure), `SupDimReq` (prerequisites), `SupDimQuiz` (question types).  
+
+**Security & Compliance:**  
+- **Encryption:** Transparent Data Encryption (TDE) for data at rest.  
+- **Access Control:** Azure AD authentication with role-based permissions (RBAC) for least-privilege access.  
+- **Audit Logs:** Tracked via Azure Monitor for compliance reporting.  
+
+**Performance:**  
+- Synapse leverages **MPP (Massively Parallel Processing)** for complex OLAP queries.  
+- ADF uses **in-memory lookups** (e.g., `DimDate` cached) to accelerate joins.  
 
 ---
 
 ### 08. Cubes Creation Using SSAS  
 ![Cube Image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/08_Cubes%20Creation%20Using%20SSAS/SSAS_PH/Analysis%20SSAS.png)  
-- **Sales Cube:**  
-  - **Measures:** `Total Revenue`, `Avg Discount`, `Payment Method Share`.  
-  - **Dimensions:** `DimDate` (Year/Quarter), `DimGeography` (Country/Region).  
-- **Enrollment Cube:**  
-  - **Measures:** `Completion Rate`, `Avg Grade`, `Dropout Rate`.  
-  - **Drillthrough:** Course → Section → Lesson details.  
-- **Cart Cube:**  
-  - **Measures:** `Cart Abandonment Rate`, `Avg Courses per Cart`.  
-  - **KPIs:** Highlighted carts with high-value items (> \$200).  
+
+**Multidimensional Cubes** were built in SSAS to enable advanced analytics on UdemyDWH:  
+
+1. **Sales & Revenue Cube:**  
+   - **Measures:**  
+     - `Completed Revenue` (SUM of successful orders).  
+     - `Lost Revenue` (pending/canceled orders).  
+     - `Average Discount` and `Total Orders`.  
+   - **Dimensions:**  
+     - `DimDate` (Year → Quarter → Month hierarchy).  
+     - `DimStudents` (country, social media presence).  
+     - `DimPaymentMethod` (Visa, PayPal splits).  
+
+2. **Enrollment Cube:**  
+   - **Measures:**  
+     - `Completion Rate` (% with 100% progress).  
+     - `Student Engagement Score` (custom formula: 50% progress + 30% grade + 20% rating).  
+     - `Average Grade` and `Not Completed Count`.  
+   - **Drillthrough:** Course → Section → Lesson details.  
+
+3. **Cart Analysis Cube:**  
+   - **Measures:**  
+     - `Total Amount` (cart value).  
+     - `Total Courses Cart` (distinct course count).  
+     - `Abandonment Rate` (inactive carts >30 days).  
+   - **KPIs:** Flagged high-value carts (>$200) for targeted campaigns.  
+
+**Technical Implementation:**  
+- **Star Schema:** Fact tables (`FactOrder`, `FactEnrollment`, `FactCarts`) linked to conformed dimensions (`DimCourses`, `DimDate`).  
+- **MOLAP Storage:** Pre-aggregated data for fast queries (e.g., revenue by quarter).  
+- **Incremental Processing:** Daily updates post-ETL to refresh cubes.  
+- **Aggregations:** Optimized for time hierarchies (month/quarter/year) and student-course combinations.  
+
+**Use Cases:**  
+- Identify discount impact on enrollment rates.  
+- Analyze cart abandonment trends by demographics.  
+- Track regional revenue growth via Power BI dashboards.  
 
 ---
 
 ### 09. Reports Creation Using SSRS  
 ![SSRS GIF](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/09_Reporrts%20Creation%20Using%20SSRS/SSRS_PH/Studify%20Reports.gif)  
-1. **Enrollment by Category:** Stacked bars showing enrollment distribution (IT: 28%, Business: 22%).  
-2. **Revenue by Geography:** Drill-down maps from country → state → city.  
-3. **Instructor Performance:** Scorecards with revenue, ratings, and student feedback.  
-4. **Student Progress:** Sparklines for progress trends and conditional formatting for at-risk students.  
-5. **Cart Analysis:** Funnel charts comparing cart additions vs. purchases.  
-6. **Discount Impact:** Pareto charts identifying top discounts driving sales.  
+
+**ETL & Data Preparation:**  
+- **SSIS Workflow:** Extracted data from SSAS cubes (*Sales*, *Enrollment*, *Cart*) into SQL staging tables.  
+- **Transformations:** Flattened hierarchies (e.g., `Country → State → City`), replaced nulls with "Unknown," and standardized currency/date formats.  
+- **Destination:** Loaded cleansed data into dedicated SQL tables (e.g., `Studify_EnrollmentByCategory`, `Studify_RevenueByLocation`).  
+
+**Core Reports (SSRS):**  
+1. **Enrollment by Category:**  
+   - **Visuals:** Stacked bars showing course distribution (IT: 28%, Business: 22%).  
+   - **Metrics:** `Completion Rate`, `Average Grade`, and `Student Engagement Score`.  
+2. **Revenue by Geography:**  
+   - **Drill-Down:** Interactive maps from country → state → city, layered with `Total Revenue` and `Average Discount`.  
+3. **Cart Analysis:**  
+   - **Funnel Charts:** Track cart additions vs. purchases; highlight high-value carts (>$200).  
+4. **Instructor Performance:**  
+   - **Scorecards:** Combine `Revenue Generated`, `Average Rating`, and student feedback trends.  
+5. **Student Progress:**  
+   - **Sparklines:** Visualize progress trends; conditional formatting flags at-risk students (<30% progress).  
+
+**Data Sources:**  
+- **Cubes:** Leveraged `FactEnrollment` (progress metrics), `FactOrder` (revenue), and `FactCarts` (abandonment rates).  
+- **Dimensions:** Linked to `DimCourses` (category/pricing), `DimStudents` (demographics), and `DimDate` (time trends).  
+
+**Validation:** Cross-checked totals against SSAS cube browser and ensured geographic hierarchy integrity (e.g., city-state alignment).  
 
 ---
 
