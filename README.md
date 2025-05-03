@@ -122,11 +122,23 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 ---
 
 ### 05. Stored Procedures & Views  
-- **Stored Procedures (85):**  
-  - **Get:** `sp_GetTopCoursesByRevenue` (returns top 10 courses with revenue trends).  
-  - **Modify:** `sp_UpdateCoursePrice` (adjusts prices and cascades changes to carts).  
-  - **Input:** `sp_EnrollStudent` (validates prerequisites before enrollment).  
-  - **Remove:** `sp_ArchiveOldCourses` (moves inactive courses to history tables).  
+- **Stored Procedures (7):**  
+  - **System Stored Procedures:**  
+    - Built‑in routines shipped with SQL Server for server‑level and metadata operations (e.g. `sp_who`, `sp_help`).  
+    - **Note:** no system procs are defined in this project.  
+
+  - **Extended Stored Procedures:**  
+    - DLL‑backed procedures that allow SQL Server to call external OS‑level functions.  
+    - **Note:** none are used here.  
+
+  - **User‑Defined Stored Procedures:**  
+    - `sp_GetCoursesByYear` (Courses by Year Procedure: retrieves course ID, name, price & creation date for courses between specified start/end dates).  
+    - `sp_GetInstructorCoursesByCountry` (Instructor Courses by Country: returns each instructor’s country, name, course creation date, ID & price).  
+    - `sp_GetCoursesByCategory` (Courses by Category: totals revenue per course for a given category & year).  
+    - `sp_GetStudentProgressByCourse` (Student Progress by Course: lists students’ names, enrollment dates & progress % for a specific course).  
+    - `sp_GetCoursesInCartByStudent` (Courses in Cart by Student: returns cart items with course name, price & last modified date).  
+    - `sp_GetTopRatedCoursesByYear` (Top Rated Courses by Year: retrieves course name, average rating & total reviews for a specified year).  
+    - `sp_GetEnrollmentTrendsByYear` (Enrollment Trends by Year: returns total enrollments per year for trend analysis).
 - **Views (11):**  
   - **Fact Views:**  
     - `vw_EnrollmentCountByCourse` (total enrollments per course)  
