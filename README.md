@@ -186,6 +186,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 
 ##### 10.1.1 Power BI Integration Dashboards
 **10.1.1.1 Studify Admin Dashboard**  
+![Studify Admin Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/raw/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Admin%20Dashboard.gif)
 - **Pages:**  
   - **Platform Overview:** Real-time metrics (active users, revenue, server health).  
   - **Geospatial Analysis:** Heatmaps of user logins and course demand.  
@@ -195,6 +196,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Alerts:** SMS/email notifications for downtime or fraud detection.  
 
 **10.1.1.2 Studify Instructor Dashboard**  
+![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Instructor%20Dashboarrd.gif)
 - **Pages:**  
   - **Earnings Report:** Revenue by course, payment method, and student demographics.  
   - **Engagement Hub:** Avg. rating (4.3/5), Q&A response rate (82%), and completion trends.  
@@ -204,6 +206,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Export:** Generate PDF reports for tax/ROI analysis.  
 
 **10.1.1.3 Studify Student Dashboard**  
+![Studify Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Student%20Dashboard.gif)
 - **Pages:**  
   - **Learning Journey:** Progress timelines, course grades, and achievement badges.  
   - **Recommendations:** AI-curated courses based on enrollment history.  
@@ -214,33 +217,39 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
 
 ##### 10.1.2 Power BI Data Warehouse Dashboards  
 **10.1.2.1 Studify-DWH Course Enrollment Dashboard**
+![Studify Enrollment Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Enrollment%20Dashboards.gif)
 - **Visualizations:**  
   - **YoY Growth:** Line charts showing 2024 enrollments (+38%).  
   - **Category Breakdown:** Treemaps (IT: 28%, Business: 22%).  
   - **Correlation Analysis:** Scatter plots (course duration vs. completion rate).  
 
-**10.1.2.2 Studify-DWH Course Order Dashboard**  
+**10.1.2.2 Studify-DWH Course Order Dashboard** 
+![Studify Course Order Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Course%20order%20Dashboards%20.gif)
 - **Visualizations:**  
   - **Sales Funnel:** Cart → Payment → Completion stages.  
   - **Revenue Maps:** Chloropleth maps highlighting top countries (USA: \$4.8M).  
   - **Discount Impact:** Pareto charts (top 20% discounts drive 80% sales).  
 
 **10.1.2.3 Studify-DWH Data Mart Dashboard**  
+![Studify Data Mart Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Cart%20Data%20Mart%20Dashboards.gif)
 - **Visualizations:**  
   - **Cart Abandonment:** Heatmaps by time/day (peak: Sundays 8 PM).  
   - **Discount Depth vs. Conversion:** Trend lines (46% avg discount).  
 
 **10.1.2.4 Studify-DWH Instructor Dashboard**  
+![Studify DWH Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Instructor%20Dashboards.gif)
 - **Visualizations:**  
   - **Leaderboards:** Top instructors by revenue (e.g., "Dr. Smith: \$120K").  
   - **Radar Charts:** Engagement metrics (ratings vs. response time).  
 
-**10.1.2.5 Studify-DWH Student Dashboard**  
+**10.1.2.5 Studify-DWH Student Dashboard**
+![Studify DWH Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Student%20Dashboard.gif)
 - **Visualizations:**  
   - **Progress Sankey:** Beginner → Advanced course pathways.  
   - **Grade Distributions:** Box plots per course (avg: 76/100).  
 
 #### 10.2 Tableau Dashboards  
+![Studify Tableau Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/02_Tableau%20Dashboards/Screen%20Record/Tablue%20Dashboard%20.gif)
 - **Course Engagement Dashboard:**  
   - Sunburst charts for category → subcategory → course hierarchies.  
   - Real-time filters for age groups and regions.  
@@ -248,7 +257,8 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - ARIMA models predicting next quarter’s revenue (±12% error).  
   - Scenario analysis for discount strategies.  
 
-#### 10.3 Excel Dashboards  
+#### 10.3 Excel Dashboards
+![Studify Excel Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/03_Excel%20Dashboards/Ph/Studify-Course%20Order%20Dashboard%20Excel.PNG)
 - **Sales Tracker:**  
   - Pivot tables (revenue by category) + charts (monthly trends).  
   - Data bars highlighting top sellers (e.g., "Python Bootcamp: \$89K").  
@@ -256,7 +266,8 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - Conditional formatting for at-risk students (progress < 30%).  
   - VLOOKUP merging enrollment + course data.  
 
-#### 10.4 Python Dashboards  
+#### 10.4 Python Dashboards
+![Studify Python Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/04_Python%20Dashboards/Studify%20Python%20Dashboard.gif)
 - **Streamlit Analytics App:**  
   - **Sentiment Analysis:** NLP-driven review scores (positive/negative).  
   - **Correlation Matrix:** Heatmaps (price vs. ratings vs. duration).  
