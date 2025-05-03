@@ -234,16 +234,39 @@ Designed for analytics and reporting with Power BI integration:
 ---
 
 ### 06. ETL Process Using SSIS  
-![ETL Process Using SSIS image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/06_ETL%20Process%20Using%20SSIS/SSIS%20Process%20Screenshots/SSIS%20Data%20Flow%20ETL%20Process.png)
-- **Workflow:**  
-  1. **Extract:** Pulled data from `AspNetUsers`, `Courses`, and `Enrollments` via OLE DB.  
-  2. **Transform:**  
-     - **SCD2:** Tracked historical changes in `DimStudents` using checksums.  
-     - **Data Cleansing:** Standardized country names (e.g., "US" → "United States").  
-  3. **Load:** Populated `UdemyDWH` (star schema) with `FactEnrollment` and `DimCourses`.  
-- **Optimizations:**  
-  - **Lookup Cache:** Stored `DimDate` in memory for faster joins.  
-  - **Parallel Execution:** Processed fact tables concurrently.  
+![ETL Process Using SSIS image](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/06_ETL%20Process%20Using%20SSIS/SSIS%20Process%20Screenshots/SSIS%20Data%20Flow%20ETL%20Process.png)  
+
+**Data Warehouse Design:**  
+- **Schema:** Hybrid star schema with conformed dimensions (`DimDate`, `DimUsers`, `DimCourses`) and fact tables (`FactEnrollment`, `FactOrder`).  
+- **SCD Handling:**  
+  - **Type 2:** Track historical user profiles (`DimUsers`) and cart behavior with `StartDate/EndDate`.  
+  - **Type 1:** Overwrite course changes (`DimCourses`) for current-state analysis.  
+
+**ETL Workflow:**  
+1. **Extract:** Pulled data from OLTP tables (`AspNetUsers`, `Courses`, `Enrollments`) via OLE DB sources.  
+2. **Transform:**  
+   - **SCD Management:** Used SSIS SCD Wizard to detect changes via checksums and update historical records.  
+   - **Data Cleansing:** Standardized country names, converted currencies (`EÂ£249.99` → `249.99`), and derived fields (`ProgressPercentage`).  
+   - **Hierarchies:** Denormalized `Category → Subcategory` relationships for analytics.  
+3. **Load:** Populated `UdemyDWH` tables with audit metadata (`CreatedDate`, `IsDeleted`).  
+
+**Key Components:**  
+- **Dimensions:**  
+  - `DimUsers`: Tracks student/instructor demographics, social media flags, and wallet balances.  
+  - `DimCourses`: Includes pricing history (`OriginalPrice` vs `CurrentPrice`) and bestseller status.  
+- **Facts:**  
+  - `FactEnrollment`: Tracks progress metrics and completion rates.  
+  - `FactOrder`: Analyzes revenue, discounts, and payment methods.  
+
+**Optimizations:**  
+- **Lookup Cache:** Stored `DimDate` in memory for faster temporal joins.  
+- **Parallel Execution:** Processed fact tables concurrently using SSIS buffer tuning.  
+- **Incremental Loading:** Used `ModifiedDate` to process only delta changes.  
+
+**Robustness Features:**  
+- **Error Handling:** Redirected failed rows to staging tables with detailed logging.  
+- **Audit Logs:** Captured row counts, execution times, and errors in SQL tables.  
+- **Scheduling:** Daily SQL Server Agent jobs with email alerts for failures.  
 
 ---
 
