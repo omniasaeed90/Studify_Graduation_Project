@@ -2,7 +2,9 @@
 
 ## Project Description  
 **Studify** is an enterprise-grade e-learning platform designed to deliver seamless course management, personalized learning experiences, and actionable business intelligence. The Power BI team engineered 25+ interactive dashboards that process 60,000+ user records and 30,000+ courses in real-time, enabling administrators, instructors, and students to make data-driven decisions. Key achievements include a 38% YoY enrollment growth, 99.98% dashboard uptime, and \$9.5M in tracked revenue.  
-*(Presentation and website links will be added here)*  
+- [Presentation Link](https://www.canva.com/design/DAGlIHSSV9Y/QhGsWInDElgbHDcmk61EFw/edit)
+- [Website Link](https://studify-project-yn.vercel.app/)
+  
 
 ---
 
@@ -25,7 +27,7 @@
 - [09. Reports Creation Using SSRS](#09-reports-creation-using-ssrs)
 - [10. Dashboards](#10-dashboards)
   - [10.1 Power BI Dashboards](#101-power-bi-dashboards)
-    - [10.1.1 Power BI Integration Dash](#1011-power-bi-integration-dash)
+    - [10.1.1 Power BI Integration Dashboard](#1011-power-bi-integration-dashboard)
       - [10.1.1.1 Studify Admin Dashboard](#10111-studify-admin-dashboard-power-bi)
       - [10.1.1.2 Studify Instructor Dashboard](#10112-studify-instructor-dashboard-power-bi)
       - [10.1.1.3 Studify Student Dashboard](#10113-studify-student-dashboard-power-bi)
@@ -52,7 +54,7 @@ Key outcomes included a 27% reduction in cart abandonment through targeted disco
 
 ---
 
-### 01. EERD  
+### 01. EERD: Enhanced Entity-Relationship Diagram
 ![EERD Image](link_to_image)  
 The Enhanced Entity-Relationship Diagram (EERD) models:  
 - **Core Entities:** 18 entities including `Users`, `Courses`, `Orders`, and `Quizzes`.  
