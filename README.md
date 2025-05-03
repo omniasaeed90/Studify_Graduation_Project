@@ -32,7 +32,7 @@
       - [10.1.1.2 Studify Instructor Dashboard](#10112-studify-instructor-dashboard-power-bi)
       - [10.1.1.3 Studify Student Dashboard](#10113-studify-student-dashboard-power-bi)
     - [10.1.2 Power BI Data Warehouse Dashboards](#1012-power-bi-data-warehouse-dashboards)
-      - [10.1.2.1 Studify-DWH Course Enrolment Dashboard](#10121-studify-dwh-course-enrolment-dashboard)
+      - [10.1.2.1 Studify-DWH Course Enrolment Dashboard](#10121‑studify‑dwh‑course‑enrollment‑dashboard)
       - [10.1.2.2 Studify-DWH Course Order Dashboard](#10122-studify-dwh-course-order-dashboard)
       - [10.1.2.3 Studify-DWH Data Mart Dashboard](#10123-studify-dwh-data-mart-dashboard)
       - [10.1.2.4 Studify-DWH Instructor Dashboard](#10124-studify-dwh-instructor-dashboard)
