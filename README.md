@@ -221,7 +221,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Alerts:** SMS/email notifications for downtime or fraud detection.  
 
 ###### 10.1.1.2 Studify Instructor Dashboard 
-![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Instructor%20Dashboarrd.gif)
+![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Instructor%20Dashboarrd.gif?raw=true)
 - **Pages:**  
   - **Earnings Report:** Revenue by course, payment method, and student demographics.  
   - **Engagement Hub:** Avg. rating (4.3/5), Q&A response rate (82%), and completion trends.  
