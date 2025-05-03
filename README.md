@@ -213,7 +213,7 @@ The **OLTP database** comprises 22 tables optimized for ACID transactions:
   - **Gamification:** Unlock badges for milestones (e.g., "10 Courses Completed").  
 
 ##### 10.1.2 Power BI Data Warehouse Dashboards  
-**10.1.2.1 Studify-DWH Course Enrollment Dashboard**  
+###### 10.1.2.1 Studify-DWH Course Enrollment Dashboard
 - **Visualizations:**  
   - **YoY Growth:** Line charts showing 2024 enrollments (+38%).  
   - **Category Breakdown:** Treemaps (IT: 28%, Business: 22%).  
