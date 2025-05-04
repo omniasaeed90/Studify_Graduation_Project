@@ -670,9 +670,10 @@ While the platform already supports core LMS functionalities, future iterations 
 
 ---
 
-### 12. Contributors  
-- **Aya Mohamed Mahmoud (Team Leader)**  
-- **Abdelrahman Elsayed Farouk**
-- **Maha Fathy Ghoneim**
-- **Mohammed Osama Alsamadoni** 
-- **Omnia Saaed Abdelrahim**
+### 12. Contributors
+
+- [**Aya Mohamed Mahmoud (Team Leader)**](https://github.com/Aya-Mohamedd)  
+- [**Abdelrahman Elsayed Farouk**](https://github.com/Abdelrahman-Adams)  
+- [**Maha Fathy Ghoneim**](https://github.com/MahaGhonaim)  
+- [**Mohammed Osama Alsamadoni**](https://github.com/Mohammed1999sstack)  
+- [**Omnia Saaed Abdelrahim**](https://github.com/omniasaeed90)
