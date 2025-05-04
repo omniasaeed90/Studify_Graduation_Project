@@ -470,46 +470,130 @@ All SQL Server views used in the platform are available [here](https://github.co
 - **Gamification:** Badges for milestones (e.g., "10 Courses Completed").  
 
 ##### 10.1.2 Power BI Data Warehouse Dashboards  
-###### 10.1.2.1 Studify-DWH Course Enrollment Dashboard
-![Studify Enrollment Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Enrollment%20Dashboards.gif)
-- **Visualizations:**  
-  - **YoY Growth:** Line charts showing 2024 enrollments (+38%).  
-  - **Category Breakdown:** Treemaps (IT: 28%, Business: 22%).  
-  - **Correlation Analysis:** Scatter plots (course duration vs. completion rate).  
+###### 10.1.2.1 Studify-DWH Course Enrollment Dashboard  
+![Studify Enrollment Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Enrollment%20Dashboards.gif)  
+[View Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMzcxOTNjZTgtZGMzNC00NmU5LTg4OTYtNGQwYjkzZTdiZTNkIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=3bf737ae99bfdd97485b)
 
-###### 10.1.2.2 Studify-DWH Course Order Dashboard 
-![Studify Course Order Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Course%20order%20Dashboards%20.gif)
-- **Visualizations:**  
-  - **Sales Funnel:** Cart → Payment → Completion stages.  
-  - **Revenue Maps:** Chloropleth maps highlighting top countries (USA: \$4.8M).  
-  - **Discount Impact:** Pareto charts (top 20% discounts drive 80% sales).  
+**Story:** Tracks 25K+ enrollments across 453 courses (58% free), analyzing engagement patterns and satisfaction drivers.  
+
+**Key Insights:**  
+- **Paid vs Free:** Paid courses achieve 78% satisfaction vs 53% for free.  
+- **Top Categories:** Development (28%) and Business (22%) dominate enrollments.  
+- **Retention:** Paid courses retain students 2.1x longer than free ones.  
+
+**Recommendations:**  
+1. Convert free users with upselling strategies (bundles/certifications).  
+2. Improve free course quality using satisfaction index metrics.  
+3. Optimize course durations (scatter plots show sweet spot: 4-8 hours).  
+
+**Metrics:**  
+- `Satisfaction Index`: Combines ratings, completion rates, and reviews.  
+- `Positive Reviews %`: 50% overall (DAX measures handle nulls).  
+
+###### 10.1.2.2 Studify-DWH Course Order Dashboard  
+![Studify Course Order Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Course%20order%20Dashboards%20.gif)  
+[View Dashboard](https://app.powerbi.com/view?r=eyJrIjoiYWE0M2E2ZDAtMTRlYy00NjgzLTg2YjUtOGViZjJiOTI2ZTkzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=25dbf9bc6be5c083f96d)
+
+**Story:** Analyzes 25K+ course orders to optimize sales strategies and payment workflows.  
+
+**Key Insights:**  
+- **Revenue:** USA leads with $4.8M (chloropleth maps); Development courses drive 28% of sales.  
+- **Payments:** 15% order cancellations; PayPal dominates (65% transactions).  
+- **Discounts:** Top 20% discounts drive 80% sales (Pareto principle).  
+
+**Recommendations:**  
+1. Expand **credit card/digital wallet** options to reduce cancellations.  
+2. Target high-revenue regions (USA, India) with localized pricing.  
+3. Optimize discount tiers ($15-$25 range) for maximum ROI.  
+
+**Tech Features:**  
+- **Dynamic Search:** NLP prompts for quick insights (e.g., "Top 5 courses by revenue").  
+- **DAX Measures:** Track `Cancelled Orders %`, `Avg Discount Impact`.  
+- **DirectQuery** from Azure SQL ensures real-time data.  
 
 ###### 10.1.2.3 Studify-DWH Data Mart Dashboard  
-![Studify Data Mart Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Cart%20Data%20Mart%20Dashboards.gif)
-- **Visualizations:**  
-  - **Cart Abandonment:** Heatmaps by time/day (peak: Sundays 8 PM).  
-  - **Discount Depth vs. Conversion:** Trend lines (46% avg discount).  
+![Studify Data Mart Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Cart%20Data%20Mart%20Dashboards.gif)  
+[View Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMGRmMWU0MjMtZDFhZS00YTkyLTk2NTgtYjNiMjAxMmFkNjA4IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=49eaeb8288db89f2b1d1)
+
+**Story:** Analyzes 89K+ course carts to optimize conversions and reduce 46% avg discount dependency.  
+
+**Key Insights:**  
+- **Cart Behavior:** Peak abandonment Sundays 8PM; Bestsellers drive 65% cart additions.  
+- **Content:** Short courses (<2h) have 3x higher engagement than long formats.  
+- **Revenue:** Business/Development categories generate 60% of $290K revenue.  
+
+**Recommendations:**  
+1. Retarget abandoned carts (Sundays) with time-limited discounts.  
+2. Expand **short-form courses** (avg 3 sections) for higher completion.  
+3. Upsell Beginner → Expert pathways (67% Beginner enrollment).  
+
+**Tech Features:**  
+- **DirectQuery** from Azure SQL ensures real-time cart analytics.  
+- **DAX Measures:** Track `Avg Discount Impact`, `Bestseller Conversion Rate`.  
+- Embedded in ASP.NET via dynamic InstructorID/StudentID parameters.  
 
 ###### 10.1.2.4 Studify-DWH Instructor Dashboard  
-![Studify DWH Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Instructor%20Dashboards.gif)
-- **Visualizations:**  
-  - **Leaderboards:** Top instructors by revenue (e.g., "Dr. Smith: \$120K").  
-  - **Radar Charts:** Engagement metrics (ratings vs. response time).  
+![Studify DWH Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Instructor%20Dashboards.gif)  
+[View Dashboard](https://app.powerbi.com/view?r=eyJrIjoiY2Q3YmU1ZDctMzdmNC00ZTRmLTk5YTItZWViODIwOTBmMjM3IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=2c010eb44d694d7cabc3)
 
-###### 10.1.2.5 Studify-DWH Student Dashboard
-![Studify DWH Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Student%20Dashboard.gif)
-- **Visualizations:**  
-  - **Progress Sankey:** Beginner → Advanced course pathways.  
-  - **Grade Distributions:** Box plots per course (avg: 76/100).  
+**Story:** Empowers 9.5K+ instructors to optimize content and revenue, tracking $290K+ earnings across 30K courses.  
+
+**Key Insights:**  
+- **Top Performers:** Top 10 instructors drive 40% revenue (leaderboards highlight *"Dr. Smith: $120K"*).  
+- **Engagement:** Courses with <2h duration have 3x higher completion rates vs long formats.  
+- **Social Impact:** LinkedIn drives 35% social enrollments; underutilized in Business/Development categories.  
+
+**Recommendations:**  
+1. Optimize course titles using AI-curated keywords (word clouds).  
+2. Promote **short-form video content** (80% engagement in technical courses).  
+3. Boost social posts mid-week (Tues/Wed peak engagement).  
+
+**Tech Features:**  
+- **DirectQuery** from Azure SQL for real-time analytics.  
+- **Dynamic Filtering:** Embedded in ASP.NET via InstructorID for personalized dashboards.  
+- **DAX Measures:** Track `Revenue Contribution %`, `Quiz Pass Rate`, and `Social Conversion Rate`.  
+
+###### 10.1.2.5 Studify-DWH Student Dashboard  
+![Studify DWH Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/02_Power%20BI%20Data%20Warehouse%20Dashboards/Screen%20Records/Studify%20Student%20Dashboard.gif)  
+[View Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDEwN2Q3MjQtMDU1NS00ZWY2LTkwNmItNjczNWY4MGYzZjMwIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=1cf84b4c3351d648e99b)
+
+**Story:** Tracks 69.5K+ students, analyzing engagement (56% avg progress) and academic performance (76 avg grade).  
+
+**Key Insights:**  
+- **STEM Dominance:** IT/Business courses score highest (77.7 avg) vs Music (74.7).  
+- **Engagement:** 2024 peak enrollments (6.4K); 47% courses "in-progress".  
+- **Financials:** $9.5M revenue driven by 46% avg discounts; $24M unused wallet balance.  
+
+**Recommendations:**  
+1. Boost **STEM course offerings** and structured pathways (Sankey diagrams).  
+2. Retarget students with high wallet balances via personalized discounts.  
+3. Reduce 19.9% dropout rate with interactive content (quizzes).  
+
+**Tech Features:**  
+- **DirectQuery** from Azure SQL for real-time analytics.  
+- **Dynamic Filtering:** Embedded in ASP.NET via StudentID for personalized views.  
+- **DAX Measures:** Track `Dropout Rate`, `Completion Trends`, and `Revenue/Student`.  
 
 #### 10.2 Tableau Dashboards  
-![Studify Tableau Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/02_Tableau%20Dashboards/Screen%20Record/Tablue%20Dashboard%20.gif)
-- **Course Engagement Dashboard:**  
-  - Sunburst charts for category → subcategory → course hierarchies.  
-  - Real-time filters for age groups and regions.  
-- **Revenue Forecasting Dashboard:**  
-  - ARIMA models predicting next quarter’s revenue (±12% error).  
-  - Scenario analysis for discount strategies.  
+![Studify Tableau Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/02_Tableau%20Dashboards/Screen%20Record/Tablue%20Dashboard%20.gif)  
+[View Dashboard](https://public.tableau.com/app/profile/aya.mohamed1489/viz/StudifyStudentOverviewTableauDashboard/StudentOverviewDashboardD?publish=yes)  
+
+**Executive Summary Dashboard:**  
+- **Key Metrics:** 69.5K students, 43.3K enrollments, 56% avg progress, 4.4★ rating.  
+- **Geospatial Analysis:** Mapbox visualizations highlight US dominance (12.4K enrollments).  
+- **Trends:** 38% YoY enrollment growth (2024 peak).  
+
+**Course Engagement:**  
+- **Hierarchies:** Sunburst charts for `Category → Subcategory → Course` drill-downs.  
+- **Behavior:** STEM courses achieve 77.7 avg grade vs 74.7 in Music.  
+
+**Revenue Forecasting:**  
+- **ARIMA Models:** Predict quarterly revenue (±12% error) with scenario analysis for discounts.  
+- **Optimization:** 46% avg discounts drive $9.5M revenue; target high-wallet-balance students.  
+
+**Features:**  
+- Real-time filters for age/region.  
+- Dynamic Tableau tooltips and Mapbox integrations.  
 
 #### 10.3 Excel Dashboards
 ![Studify Excel Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/03_Excel%20Dashboards/Ph/Studify-Course%20Order%20Dashboard%20Excel.PNG)
@@ -522,6 +606,8 @@ All SQL Server views used in the platform are available [here](https://github.co
 
 #### 10.4 Python Dashboards
 ![Studify Python Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/04_Python%20Dashboards/Studify%20Python%20Dashboard.gif)
+[View Dashboard](https://studify-dashboard.streamlit.app/?embed_options=dark_theme,show_footer,show_padding,disable_scrolling,show_toolbar,light_theme,show_colored_line)
+
 - **Streamlit Analytics App:**  
   - **Sentiment Analysis:** NLP-driven review scores (positive/negative).  
   - **Correlation Matrix:** Heatmaps (price vs. ratings vs. duration).  
