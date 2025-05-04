@@ -4,7 +4,7 @@
 **Studify** is an enterprise-grade e-learning platform designed to deliver seamless course management, personalized learning experiences, and actionable business intelligence. The Power BI team engineered 25+ interactive dashboards that process 60,000+ user records and 30,000+ courses in real-time, enabling administrators, instructors, and students to make data-driven decisions. Key achievements include a 38% YoY enrollment growth, 99.98% dashboard uptime, and \$9.5M in tracked revenue.  
 - [Presentation Link](https://www.canva.com/design/DAGlIHSSV9Y/QhGsWInDElgbHDcmk61EFw/edit)
 - [Website Link](https://studify-project-yn.vercel.app/)
-  
+- [.NET Team Repository](https://github.com/mohamedayad168/UdemyProject/)  
 
 ---
 
@@ -627,7 +627,7 @@ All SQL Server views used in the platform are available [here](https://github.co
 **Features:**  
 - **Dynamic Filters:** Course level, category, age group, and language.  
 - **Sentiment Analysis:** NLP-driven review scores correlate with high-rated Health/Fitness courses.  
-- **Visualizations:** Heatmaps (price vs. ratings), bar charts (top subcategories: E-commerce, Blockchain).  
+- **Visualizations:** Column Charts (Top 10 Courses by Subscribers), bar charts (top subcategories: E-commerce, Blockchain).  
 
 **Recommendations:**  
 1. Add progress checkpoints to boost 32.2% completion rate.  
