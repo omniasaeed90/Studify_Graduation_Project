@@ -40,7 +40,7 @@
   - [10.2 Tableau Dashboards](#102-tableau-dashboards)
   - [10.3 Excel Dashboards](#103-excel-dashboards)
   - [10.4 Python Dashboards](#104-python-dashboards)
-- [11. Future Enhancement](#11-future-enhancement)
+- [11. Conclusion](#11-conclusion)
 - [12. Contributors](#12-contributors)
 
 ---
