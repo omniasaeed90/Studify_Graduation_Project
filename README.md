@@ -175,6 +175,7 @@ The **ACID-compliant OLTP database** (22 tables) includes:
 ### 05. Stored Procedures & Views  
 **Stored Procedures (85):**  
 Organized into four functional categories for secure, scalable operations:  
+All SQL Server stored procedures used in the platform are available [here](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/05_Stored%20Procedures%20%26%20Views/UdemyStoredProcedures.sql).
 
 1. **Get Procedures (Select):**  
    - **Purpose:** Retrieve filtered, sorted, and analytics-ready data.  
@@ -207,7 +208,7 @@ Organized into four functional categories for secure, scalable operations:
 
 **Views (40):**  
 Designed for analytics and reporting with Power BI integration:  
-
+All SQL Server views used in the platform are available [here](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/05_Stored%20Procedures%20%26%20Views/UdemyViews.sql).
 - **Dimension Views (Descriptive):**  
   - **Examples:**  
     - `VDimCourse`: Course attributes (Category, `Duration`, `Price`).  
@@ -384,35 +385,89 @@ Designed for analytics and reporting with Power BI integration:
 #### 10.1 Power BI Dashboards  
 
 ##### 10.1.1 Power BI Integration Dashboards
-###### 10.1.1.1 Studify Admin Dashboards
-![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Admin%20Dashboard.gif)
-- **Pages:**  
-  - **Platform Overview:** Real-time metrics (active users, revenue, server health).  
-  - **Geospatial Analysis:** Heatmaps of user logins and course demand.  
-  - **Content Audit:** Flags courses with low ratings (<3.0) or high refunds.  
-- **Features:**  
-  - **Drillthrough:** Click a country → view top courses in that region.  
-  - **Alerts:** SMS/email notifications for downtime or fraud detection.  
+**Integration Workflow:**  
+1. **API & Data Pipeline:**  
+   - Connected to Studify’s ASP.NET API endpoints (`vw_FactEnrollment`, `VDimUser`, etc.) via Power Query.  
+   - Used **DirectQuery** for real-time Azure SQL Database integration (OLTP data).  
 
-###### 10.1.1.2 Studify Instructor Dashboard 
-![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Instructor%20Dashboarrd.gif?raw=true)
-- **Pages:**  
-  - **Earnings Report:** Revenue by course, payment method, and student demographics.  
-  - **Engagement Hub:** Avg. rating (4.3/5), Q&A response rate (82%), and completion trends.  
-  - **Content Analytics:** Lesson popularity heatmaps and student feedback word clouds.  
-- **Features:**  
-  - **Benchmarking:** Compare performance against category averages.  
-  - **Export:** Generate PDF reports for tax/ROI analysis.  
+2. **ETL & Modeling:**  
+   - Transformed raw API/database data into a **star schema** (facts: `Enrollment`, `Orders`; dimensions: `Courses`, `Users`, `Date`).  
+   - Implemented DAX measures for KPIs: `Completion Rate`, `Revenue Trends`, `Cart Abandonment Rate`.  
+
+3. **Dynamic Dashboards:**  
+   - Collaborated with .NET team to embed dashboards using `<iframe>` with URL parameters (`InstructorID`, `StudentID`).  
+   - Enabled **row-level security** for personalized views (e.g., instructors see only their courses).  
+
+4. **Deployment:**  
+   - Published to **Power BI Service** with daily refreshes (UTC+02:00 Cairo).  
+   - Configured Azure AD authentication for secure access.  
+
+**Key Dashboards:**  
+- **Admin Overview:** Geo-mapped revenue, enrollment trends, and course performance.  
+- **Instructor Portal:** Real-time metrics on student progress, earnings, and ratings.  
+- **Student Profile:** Personalized learning analytics (progress %, course recommendations).  
+
+**Collaboration Highlights:**  
+- Aligned with .NET team on API payload structures for seamless Power Query ingestion.  
+- Embedded dashboards into Studify’s UI using ASP.NET Razor pages with dynamic ID filtering.  
+- Automated refreshes via Azure SQL triggers to sync with platform updates.
+###### 10.1.1.1 Studify Admin Dashboards  
+![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Admin%20Dashboard.gif)  
+**Story:** Centralized analytics for managing **69.5K+ users** and **30K+ courses**, tracking engagement, revenue, and content performance.  
+**Key Insights:**  
+- **Engagement:** 23.6% active users (peaks in Nov-Dec), led by US (21.3K), China (10.8K).  
+- **Courses:** Health & Fitness dominates enrollments (13.3K); Web Design has most courses (66.6K) but low ratings.  
+- **Revenue:** $9.5M total (69% via credit cards), 20.3% cancellation rate.  
+- **Students:** 32% completion rate; 52% in-progress.  
+
+**Recommendations:**  
+1. Add **digital wallets** to reduce payment cancellations.  
+2. Improve **Web Design** course quality to boost ratings.  
+3. Launch **geo-targeted campaigns** during low-activity periods.  
+4. Incentivize instructors in underperforming categories (*Music*, *Office Products*).  
+
+**Tech:** Embedded via Power BI Service with daily Azure SQL refreshes.  
+
+
+###### 10.1.1.2 Studify Instructor Dashboard  
+![Studify Instructor Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Instructor%20Dashboarrd.gif?raw=true)  
+**Story:** Empowers instructors to optimize 3,740+ student engagements and $18.5K+ earnings through real-time analytics.  
+
+**Key Insights:**  
+- **Content Performance:** "Mastering Power BI" (1,200 students) and "Advanced SQL" (4.7★) drive engagement.  
+- **Behavior:** 61% course completion rate; progress drops 50%+ in long courses.  
+- **Revenue:** $15–25 pricing yields best ROI; 2.1% refunds from unclear expectations.  
+
+**Recommendations:**  
+1. Modularize lengthy courses to boost completion rates.  
+2. Host live sessions Tues/Wed evenings (peak activity).  
+3. Bundle top-rated courses for recurring revenue.  
+
+**Tech:**  
+- **DirectQuery** from Azure SQL for live data.  
+- **Dynamic filtering** via InstructorID embeds dashboards in ASP.NET.  
+- **Benchmarking** against category averages.  
+
 
 ###### 10.1.1.3 Studify Student Dashboard  
-![Studify Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Student%20Dashboard.gif)
-- **Pages:**  
-  - **Learning Journey:** Progress timelines, course grades, and achievement badges.  
-  - **Recommendations:** AI-curated courses based on enrollment history.  
-  - **Social Learning:** Discussion forum activity and peer comparisons.  
-- **Features:**  
-  - **Calendar Sync:** Export deadlines to Google Calendar/Outlook.  
-  - **Gamification:** Unlock badges for milestones (e.g., "10 Courses Completed").  
+![Studify Student Dashboard](https://github.com/Mohammed1999sstack/Studify_Graduation_Project/blob/main/10_Dashboards/01_Power%20BI%20Dashboards/01_Power%20BI%20Integration%20Dashboards/Screen%20Record/Studify%20Student%20Dashboard.gif)  
+
+**Story:** Personalized analytics for 14+ enrolled courses, tracking progress (65.3% avg) and optimizing learning paths for Student ID 9070.  
+
+**Key Insights:**  
+- **Focus Areas:** Business courses dominate enrollments (e.g., DevOps); 28.6% completion rate.  
+- **Performance:** "Create and Sell Online Courses" has highest time investment (9h); top rating: 4.5★.  
+- **Payments:** 100% PayPal usage; $6.5K wallet balance unused.  
+
+**Recommendations:**  
+1. Complete **Beginner courses** to boost completion rate.  
+2. Allocate time to high-rated courses (e.g., *Kobildoo Japanese Facial Massage*).  
+3. Use wallet funds for advanced courses.  
+
+**Tech:**  
+- **DirectQuery** from Azure SQL ensures real-time data.  
+- **Dynamic filtering** via StudentID embeds dashboards in ASP.NET.  
+- **Gamification:** Badges for milestones (e.g., "10 Courses Completed").  
 
 ##### 10.1.2 Power BI Data Warehouse Dashboards  
 ###### 10.1.2.1 Studify-DWH Course Enrollment Dashboard
